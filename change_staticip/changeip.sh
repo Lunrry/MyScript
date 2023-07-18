@@ -15,7 +15,7 @@ read input
 Host="$input"
 
 sed -i 's/BOOTPROTO="none"/BOOTPROTO="static"/' /etc/sysconfig/network-scripts/ifcfg-ens33
-sed -i "s/IPADDR=\"192.168.0.3\"/IPADDR=\"192.168.0.${Host}\"/" /etc/sysconfig/network-scripts/ifcfg-ens33
+sed -i "s/IPADDR=\"192.168.0.3\"/IPADDR=\"192.168.0.${1}\"/" /etc/sysconfig/network-scripts/ifcfg-ens33
 
 #service network restart
 reboot
