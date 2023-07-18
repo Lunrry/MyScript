@@ -1,0 +1,34 @@
+- name: copy script
+  copy: 
+    src=/etc/ansible/roles/zabbixagent/script/install_zabbixagent.sh 
+    dest=/etc/zabbix/ 
+    mode=0700
+    
+- name: run script
+  shell: /etc/zabbix/install_zabbixagent.sh
+  async: 300
+  poll: 0
+  register: script_result
+  
+- name: Wait for script to complete
+  async_status:
+    jid: "{{ script_result.ansible_job_id }}"
+  register: job_result
+  until: job_result.finished
+  retries: 30
+  delay: 10 
+  
+- name: config zabbix
+  copy: 
+    src=/etc/ansible/roles/zabbixagent/files/zabbix_agentd.conf 
+    dest=/etc/zabbix/zabbix_agentd.conf
+    
+- name: start service
+  service: 
+    name=zabbix-agent 
+    state=started
+    
+- name: restart service
+  service: 
+    name=zabbix-agent 
+    state=restarted

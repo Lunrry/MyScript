@@ -28,3 +28,8 @@
 | --------------- | ----------- |
 | fdfs_install.sh | 安装fastdfs |
 
+## ansible
+
+| 运行命令                         | 功能                                      | 使用方法                                                     |
+| -------------------------------- | ----------------------------------------- | ------------------------------------------------------------ |
+| ansible-playbook zabbixagent.yml | 通过ansible向主机批量添加zabbix-agent程序 | 1. 上传zabbixagent文件夹到/etc/ansible/roles<br>2. 修改/etc/ansible/roles/zabbixagent/files/zabbix_agentd.conf中Server=和ServerActive=的值为zabbix-server主机ip<br>3. 上传 zabbixagent.yml文件至/etc/ansible<br/>4. 修改/etc/ansible/hosts文件<br/>5. 执行ansible-playbook zabbixagent.yml |
