@@ -20,15 +20,16 @@
   
 - name: config zabbix
   copy: 
-    src=/etc/ansible/roles/zabbixagent/files/zabbix_agentd.conf 
-    dest=/etc/zabbix/zabbix_agentd.conf
+    src: /etc/ansible/roles/zabbixagent/files/zabbix_agentd.conf 
+    dest: /etc/zabbix/zabbix_agentd.conf
     
 - name: start service
   service: 
-    name=zabbix-agent 
-    state=started
+    name: zabbix-agent 
+    state: started
     
 - name: restart service
   service: 
-    name=zabbix-agent 
-    state=restarted
+    name: zabbix-agent 
+    state: restarted
+    enabled: yes
