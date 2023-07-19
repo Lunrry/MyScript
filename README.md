@@ -28,6 +28,12 @@
 | --------------- | ----------- |
 | fdfs_install.sh | 安装fastdfs |
 
+## change_staticip
+
+`curl -sSL https://ghproxy.com/https://github.com/Lunrry/MyScript/raw/main/change_staticip/changeip.sh | bash -s 4`
+
+后面参数`4`是需要修改成的主机号
+
 ## ansible
 
 | 运行命令                         | 功能                                      | 使用方法                                                     |
