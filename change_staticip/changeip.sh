@@ -11,8 +11,8 @@ echo -e "${RED}======================================================${NC}"
 echo "当前网卡信息为："
 cat /etc/sysconfig/network-scripts/ifcfg-ens32
 
-sed -i 's/BOOTPROTO="none"/BOOTPROTO="static"/' /etc/sysconfig/network-scripts/ifcfg-ens33
-sed -i "s/IPADDR=\"192.168.0.3\"/IPADDR=\"192.168.0.${1}\"/" /etc/sysconfig/network-scripts/ifcfg-ens33
+sed -i 's/BOOTPROTO="none"/BOOTPROTO="static"/' /etc/sysconfig/network-scripts/ifcfg-ens32
+sed -i "s/IPADDR=\"192.168.0.3\"/IPADDR=\"192.168.0.${1}\"/" /etc/sysconfig/network-scripts/ifcfg-ens32
 
 
 sleep 3
